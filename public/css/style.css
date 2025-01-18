@@ -1,16 +1,46 @@
-h1 { font-family: Consolas, monaco, monospace; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: Consolas, monaco, monospace; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: Consolas, monaco, monospace; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: Consolas, monaco, monospace; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: Consolas, monaco, monospace; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5667px; }
-
-body{
-    font-size: 14px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 400;
-    line-height: 20px;
-    color: #000000;
-    background-color: #b8cad4;
+/* Estilo dos títulos */
+h1 {
+  font-family: Consolas, monaco, monospace;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 26.4px;
 }
 
-p{
+h3 {
+  font-family: Consolas, monaco, monospace;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 15.4px;
+}
+
+p {
+  font-family: Consolas, monaco, monospace;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+blockquote {
+  font-family: Consolas, monaco, monospace;
+  font-size: 21px;
+  line-height: 30px;
+}
+
+pre {
+  font-family: Consolas, monaco, monospace;
+  font-size: 13px;
+  line-height: 18.5667px;
+}
+
+body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000000;
+  background-color: #b8cad4;
+}
+
+p {
   font-size: 20px;
   font-family: 'Fira Code', monospace;
   line-height: 1.6rem;
@@ -18,10 +48,10 @@ p{
   font-weight: bold;
 }
 
+
 .bio {
   opacity: 0;
   transition: opacity 0.5s ease-in;
-
 }
 
 li {
@@ -42,5 +72,3 @@ li:hover {
   transform: translateX(10px);
   cursor: pointer;
 }
-
-

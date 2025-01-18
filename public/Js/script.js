@@ -1,7 +1,7 @@
 var i = 0;
-var txt1 = 'guilherme@guilherme:~ $ me -h ';
-var txt2 = 'guilherme@guilherme ~ $ glow interests.md';
-var speed = 50;
+var txt1 = 'guilherme@guilherme:~ $ me -h'; // Texto da primeira linha
+var txt2 = 'guilherme@guilherme ~ $ glow interests.md'; // Texto da segunda linha
+var speed = 50; // Velocidade de escrita
 
 function typeWriter1() {
   if (i < txt1.length) {
@@ -10,23 +10,23 @@ function typeWriter1() {
     setTimeout(typeWriter1, speed);
   } else {
     i = 0;
-    setTimeout(showBio, 1000); // Exibe o texto principal após a primeira linha
+    setTimeout(showBio, 1000); // Mostra o texto principal após a primeira linha
   }
 }
 
 function showBio() {
   const bio = document.getElementById('bio');
-  bio.style.opacity = 1;
-  bio.style.transition = 'opacity 2s'; // Adiciona o fade-in ao texto principal
-  setTimeout(typeWriter2, 1000); // Inicia a segunda linha após o texto principal aparecer
+  bio.style.opacity = 1; // Aparece com fade-in
+  setTimeout(typeWriter2, 1000); // Após o fade-in, exibe a segunda linha
 }
 
 function typeWriter2() {
   if (i < txt2.length) {
-    document.getElementById('txt2').innerHTML += txt2.charAt(i);
+    document.getElementById('txt1').innerHTML += txt2.charAt(i);
     i++;
     setTimeout(typeWriter2, speed);
   }
 }
 
+// Inicializa o efeito de escrita na primeira linha
 typeWriter1();
