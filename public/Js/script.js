@@ -10,13 +10,20 @@ function typeWriter1() {
     setTimeout(typeWriter1, speed);
   } else {
     i = 0;
-    setTimeout(typeWriter2, 1000);
+    setTimeout(showBio, 1000); // Exibe o texto principal após a primeira linha
   }
+}
+
+function showBio() {
+  const bio = document.getElementById('bio');
+  bio.style.opacity = 1;
+  bio.style.transition = 'opacity 2s'; // Adiciona o fade-in ao texto principal
+  setTimeout(typeWriter2, 1000); // Inicia a segunda linha após o texto principal aparecer
 }
 
 function typeWriter2() {
   if (i < txt2.length) {
-    document.getElementById('txt1').innerHTML += txt2.charAt(i);
+    document.getElementById('txt2').innerHTML += txt2.charAt(i);
     i++;
     setTimeout(typeWriter2, speed);
   }
