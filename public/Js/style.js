@@ -4,9 +4,10 @@ var speed = 50; // duração do efeito em milissegundos
 
 function typeWriter() {
   if (i < txt.length) {
-    document.getElementById("demo").innerHTML += txt.charAt(i);
+    document.getElementById('demo').innerHTML += txt.charAt(i);
     i++;
     setTimeout(typeWriter, speed);
   }
 }
 
+typeWriter();
