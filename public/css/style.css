@@ -122,3 +122,19 @@ body {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+.cowsay {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+    margin-top: 20px;
+}
+
+.cowsay pre {
+    color: var(--terminal-text);
+    font-family: 'Fira Code', monospace;
+}
+
+.lista, .bio {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}

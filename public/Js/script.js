@@ -1,7 +1,6 @@
 let i = 0;
 const txt1 = 'whoami';
-const txt2 = 'cowsay "Hello, World!"';
-const txt3 = 'Hello, World!';
+const txt2 = 'cat about.md';
 const speed = 50;
 
 function typeWriter1() {
@@ -32,7 +31,14 @@ function typeWriter2() {
     document.getElementById('txt1').innerHTML += txt2.charAt(i);
     i++;
     setTimeout(typeWriter2, speed);
+  } else {
+    setTimeout(showCowsay, 1000);
   }
+}
+
+function showCowsay() {
+  const cowsay = document.getElementById('cowsay');
+  cowsay.style.opacity = 1;
 }
 
 // Inicia a animação quando a página carrega
