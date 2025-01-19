@@ -28,5 +28,4 @@ function typeWriter2() {
   }
 }
 
-// Inicializa o efeito de escrita na primeira linha
 typeWriter1();
