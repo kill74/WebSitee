@@ -1,74 +1,124 @@
-/* Estilo dos títulos */
-h1 {
-  font-family: Consolas, monaco, monospace;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 26.4px;
-}
-
-h3 {
-  font-family: Consolas, monaco, monospace;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 15.4px;
-}
-
-p {
-  font-family: Consolas, monaco, monospace;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-}
-
-blockquote {
-  font-family: Consolas, monaco, monospace;
-  font-size: 21px;
-  line-height: 30px;
-}
-
-pre {
-  font-family: Consolas, monaco, monospace;
-  font-size: 13px;
-  line-height: 18.5667px;
+:root {
+    --terminal-bg: #282a36;
+    --terminal-text: #f8f8f2;
+    --terminal-prompt: #50fa7b;
+    --terminal-header: #44475a;
+    --terminal-link: #bd93f9;
 }
 
 body {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  color: #000000;
-  background-color: #b8cad4;
+    margin: 0;
+    padding: 20px;
+    background-color: #1a1b26;
+    font-family: 'Fira Code', monospace;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-p {
-  font-size: 20px;
-  font-family: 'Fira Code', monospace;
-  line-height: 1.6rem;
-  text-align: left;
-  font-weight: bold;
+.terminal-window {
+    width: 90%;
+    max-width: 800px;
+    background-color: var(--terminal-bg);
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
 }
 
+.terminal-header {
+    background-color: var(--terminal-header);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+    margin-right: 15px;
+}
+
+.terminal-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.close { background-color: #ff5f56; }
+.minimize { background-color: #ffbd2e; }
+.maximize { background-color: #27c93f; }
+
+.terminal-title {
+    color: var(--terminal-text);
+    font-size: 14px;
+}
+
+.terminal-content {
+    padding: 20px;
+    color: var(--terminal-text);
+}
+
+.command-line {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.prompt {
+    color: var(--terminal-prompt);
+}
+
+.command {
+    color: var(--terminal-text);
+}
+
+.command-output {
+    margin: 10px 0;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.lista {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.lista ul {
+    list-style: none;
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.lista ul li {
+    margin: 8px 0;
+    color: var(--terminal-text);
+}
+
+.lista ul li a {
+    color: var(--terminal-link);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.lista ul li a:hover {
+    color: #ff79c6;
+    text-decoration: underline;
+}
 
 .bio {
-  opacity: 0;
-  transition: opacity 0.5s ease-in;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+    margin: 20px 0;
+    line-height: 1.6;
 }
 
-li {
-  cursor: pointer;
-  font-size: 20px;
-  text-decoration: none;
-  line-height: 1.8px;
-  color: #333;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  letter-spacing: 0.5px;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+/* Cursor piscante */
+.command::after {
+    content: "█";
+    animation: blink 1s step-end infinite;
 }
 
-li:hover {
-  transform: translateX(10px);
-  cursor: pointer;
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }

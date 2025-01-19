@@ -1,7 +1,7 @@
-var i = 0;
-var txt1 = 'guilherme@guilherme:~ $ me -h'; // Texto da primeira linha
-var txt2 = 'guilherme@guilherme ~ $ glow interests.md'; // Texto da segunda linha
-var speed = 50; // Velocidade de escrita
+let i = 0;
+const txt1 = 'whoami';
+const txt2 = 'cat about.md';
+const speed = 50;
 
 function typeWriter1() {
   if (i < txt1.length) {
@@ -10,14 +10,20 @@ function typeWriter1() {
     setTimeout(typeWriter1, speed);
   } else {
     i = 0;
-    setTimeout(showBio, 1000); // Mostra o texto principal após a primeira linha
+    setTimeout(showList, 1000);
   }
+}
+
+function showList() {
+  const list = document.getElementById('list');
+  list.style.opacity = 1;
+  setTimeout(showBio, 1000);
 }
 
 function showBio() {
   const bio = document.getElementById('bio');
-  bio.style.opacity = 1; // Aparece com fade-in
-  setTimeout(typeWriter2, 1000); // Após o fade-in, exibe a segunda linha
+  bio.style.opacity = 1;
+  setTimeout(typeWriter2, 1000);
 }
 
 function typeWriter2() {
@@ -28,4 +34,5 @@ function typeWriter2() {
   }
 }
 
-typeWriter1();
+// Inicia a animação quando a página carrega
+document.addEventListener('DOMContentLoaded', typeWriter1);
