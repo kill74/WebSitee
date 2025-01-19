@@ -1,6 +1,7 @@
 let i = 0;
 const txt1 = 'whoami';
-const txt2 = 'cat about.md';
+const txt2 = 'cowsay "Hello, World!"';
+const txt3 = 'Hello, World!';
 const speed = 50;
 
 function typeWriter1() {
