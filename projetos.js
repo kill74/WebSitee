@@ -17,5 +17,4 @@ function showDirectory() {
   dirOutput.style.opacity = 1;
 }
 
-// Start animation when projects page loads
 document.addEventListener('DOMContentLoaded', typeWriter3);
