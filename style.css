@@ -138,3 +138,9 @@ body {
     opacity: 0;
     transition: opacity 0.5s ease-in;
 }
+
+.projetos{
+    text-decoration: none;
+    cursor: pointer;
+    
+}
