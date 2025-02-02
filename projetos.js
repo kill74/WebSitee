@@ -1,20 +1,38 @@
-let i = 0;
-const txt3 = 'ls';
-const speed = 50;
+document.addEventListener('DOMContentLoaded', () => {
+  const commandElement = document.getElementById('txt3');
+  const directoryOutput = document.getElementById('directory-output');
+  const commandText = 'ls';
+  let charIndex = 0;
 
-function typeWriter3() {
-  if (i < txt3.length) {
-    document.getElementById('txt3').innerHTML += txt3.charAt(i);
-    i++;
-    setTimeout(typeWriter3, speed);
-  } else {
-    setTimeout(showDirectory, 1000);
+  function typeWriter() {
+    if (charIndex < commandText.length) {
+      commandElement.textContent += commandText.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeWriter, 50);
+    } else {
+      commandElement.style.animation = 'none';
+      directoryOutput.classList.add('visible');
+      animateListItems();
+    }
   }
-}
 
-function showDirectory() {
-  const dirOutput = document.getElementById('directory-output');
-  dirOutput.style.opacity = 1;
-}
+  function animateListItems() {
+    const listItems = document.querySelectorAll('.project-list li');
+    listItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateX(0)';
+      }, index * 100);
+    });
+  }
 
-document.addEventListener('DOMContentLoaded', typeWriter3);
+  // Inicia animação após 500ms
+  setTimeout(typeWriter, 500);
+
+  // Configura animação inicial dos itens
+  document.querySelectorAll('.project-list li').forEach((item) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateX(-20px)';
+    item.style.transition = 'all 0.3s ease-out';
+  });
+});

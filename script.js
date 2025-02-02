@@ -1,46 +1,37 @@
 let i = 0;
-const txt1 = 'whoami';
-const txt2 = 'cowsay "Hello, World!"';
-const txt3 = 'ls';
+const commands = ['whoami', 'cowsay "Hello, World!"'];
+let currentCommand = 0;
 const speed = 50;
+const elementIds = ['txt', 'txt1'];
 
-function typeWriter1() {
-  if (i < txt1.length) {
-    document.getElementById('txt').innerHTML += txt1.charAt(i);
+function typeWriter() {
+  if (i < commands[currentCommand].length) {
+    document.getElementById(elementIds[currentCommand]).innerHTML +=
+      commands[currentCommand].charAt(i);
     i++;
-    setTimeout(typeWriter1, speed);
+    setTimeout(typeWriter, speed);
   } else {
     i = 0;
-    setTimeout(showList, 1000);
+    switch (currentCommand) {
+      case 0:
+        setTimeout(() => {
+          showElement('list');
+          showElement('bio');
+          currentCommand++;
+          typeWriter();
+        }, 1000);
+        break;
+      case 1:
+        setTimeout(() => showElement('cowsay'), 1000);
+        break;
+    }
   }
 }
 
-function showList() {
-  const list = document.getElementById('list');
-  list.style.opacity = 1;
-  setTimeout(showBio, 1000);
+function showElement(elementId) {
+  const element = document.getElementById(elementId);
+  element.style.opacity = 1;
+  element.style.transform = 'translateY(0)';
 }
 
-function showBio() {
-  const bio = document.getElementById('bio');
-  bio.style.opacity = 1;
-  setTimeout(typeWriter2, 1000);
-}
-
-function typeWriter2() {
-  if (i < txt2.length) {
-    document.getElementById('txt1').innerHTML += txt2.charAt(i);
-    i++;
-    setTimeout(typeWriter2, speed);
-  } else {
-    setTimeout(showCowsay, 1000);
-  }
-}
-
-function showCowsay() {
-  const cowsay = document.getElementById('cowsay');
-  cowsay.style.opacity = 1;
-}
-
-// Inicia a animação quando a página carrega
-document.addEventListener('DOMContentLoaded', typeWriter1);
+document.addEventListener('DOMContentLoaded', typeWriter);

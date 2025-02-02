@@ -1,163 +1,192 @@
-/* projetos.css */
 :root {
-  --terminal-bg: #282a36;
-  --terminal-text: #f8f8f2;
-  --terminal-prompt: #50fa7b;
-  --terminal-header: #44475a;
-  --terminal-link: #bd93f9;
-  --terminal-directory: #8be9fd;
-  --terminal-description: #6272a4;
+    --terminal-bg: #282a36;
+    --terminal-text: #f8f8f2;
+    --terminal-prompt: #50fa7b;
+    --terminal-header: #44475a;
+    --terminal-link: #bd93f9;
+    --terminal-directory: #8be9fd;
+    --terminal-description: #6272a4;
+    --terminal-height: 80vh;
+    --footer-height: 60px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 20px;
-  background-color: #1a1b26;
-  font-family: 'Fira Code', monospace;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
+    background-color: #1a1b26;
+    font-family: 'Fira Code', monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 
 .terminal-window {
-  width: 90%;
-  max-width: 800px;
-  background-color: var(--terminal-bg);
-  border-radius: 6px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    min-height: var(--terminal-height);
+    background-color: var(--terminal-bg);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .terminal-header {
-  background-color: var(--terminal-header);
-  padding: 10px;
-  display: flex;
-  align-items: center;
+    background-color: var(--terminal-header);
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
 }
 
 .terminal-buttons {
-  display: flex;
-  gap: 8px;
-  margin-right: 15px;
+    display: flex;
+    gap: 0.6rem;
 }
 
 .terminal-buttons span {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: filter 0.2s ease;
 }
 
-.close {
-  background-color: #ff5f56;
+.terminal-buttons span:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
 }
-.minimize {
-  background-color: #ffbd2e;
-}
-.maximize {
-  background-color: #27c93f;
-}
+
+.close { background-color: #ff5f56; }
+.minimize { background-color: #ffbd2e; }
+.maximize { background-color: #27c93f; }
 
 .terminal-title {
-  color: var(--terminal-text);
-  font-size: 14px;
+    color: var(--terminal-text);
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
 .terminal-content {
-  padding: 20px;
-  color: var(--terminal-text);
+    flex: 1;
+    padding: 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    flex: 1;
+    margin-bottom: var(--footer-height);
 }
 
 .command-line {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
 }
 
 .prompt {
-  color: var(--terminal-prompt);
+    color: var(--terminal-prompt);
+    font-weight: 700;
 }
 
 .command {
-  color: var(--terminal-text);
+    color: var(--terminal-text);
 }
 
-/* Animação de digitação do comando ls */
 #txt3::after {
-  content: '█';
-  animation: blink 1s step-end infinite;
+    content: '█';
+    animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
-/* Estilo para a lista de projetos */
 #directory-output {
-  margin-top: 20px;
-  opacity: 0;
-  transition: opacity 0.5s ease-in;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
 }
 
-.lista {
-  opacity: 1; /* Já visível quando aparecer */
+#directory-output.visible {
+    opacity: 1;
 }
 
-.lista ul {
-  list-style: none;
-  padding-left: 20px;
-  margin: 10px 0;
+.project-list ul {
+    list-style: none;
+    padding-left: 1.5rem;
 }
 
-.lista ul li {
-  margin: 15px 0;
-  color: var(--terminal-text);
-  font-size: 16px;
+.project-list li {
+    margin: 1.2rem 0;
+    position: relative;
+    line-height: 1.6;
 }
 
-.lista ul li a {
-  color: var(--terminal-directory);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+.project-list li::before {
+    content: "📁";
+    position: absolute;
+    left: -1.8rem;
+    top: 0.1rem;
 }
 
-.lista ul li a:hover {
-  color: var(--terminal-prompt);
-  text-decoration: underline;
+.project-list a {
+    color: var(--terminal-link);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
-.lista ul li span {
-  color: var(--terminal-description);
-  margin-left: 10px;
-  font-size: 14px;
+.project-list a:hover {
+    color: var(--terminal-prompt);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
-  .terminal-window {
-    width: 100%;
-    border-radius: 0;
-  }
-
-  .terminal-content {
-    padding: 15px;
-  }
-
-  .lista ul li {
-    font-size: 14px;
-  }
-
-  .lista ul li span {
-    font-size: 12px;
-  }
+.project-list span {
+    color: var(--terminal-description);
+    margin-left: 0.8rem;
+    font-size: 0.9em;
 }
 
-.espaçamento{
-  margin-top: 560px;
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background-color: var(--terminal-header);
+    text-align: center;
+}
+
+footer p {
+    color: var(--terminal-description);
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .terminal-window {
+        border-radius: 0;
+    }
+
+    .project-list li {
+        font-size: 0.9rem;
+    }
+
+    .project-list span {
+        font-size: 0.8rem;
+    }
 }
