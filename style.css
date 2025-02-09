@@ -1,10 +1,12 @@
 :root {
-  --terminal-bg: #282a36;
+  --terminal-bg: rgba(40, 42, 54, 0.95);
   --terminal-text: #f8f8f2;
   --terminal-prompt: #50fa7b;
-  --terminal-header: #44475a;
+  --terminal-header: rgba(68, 71, 90, 0.95);
   --terminal-link: #bd93f9;
   --terminal-highlight: #ff79c6;
+  --glass-blur: 10px;
+  --transition-duration: 0.3s;
 }
 
 body {
@@ -15,58 +17,67 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
+  animation: fadeIn var(--transition-duration) ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .terminal-window {
   width: 90%;
   max-width: 800px;
   background-color: var(--terminal-bg);
-  border-radius: 6px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   position: relative;
+  backdrop-filter: blur(var(--glass-blur));
+  transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.terminal-window:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
 }
 
 .terminal-header {
   background-color: var(--terminal-header);
-  padding: 10px;
+  padding: 10px 15px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-bottom: 2px solid #6272a4;
+  backdrop-filter: blur(var(--glass-blur));
 }
 
 .terminal-buttons {
   display: flex;
   gap: 8px;
-  margin-right: 15px;
 }
 
 .terminal-buttons span {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-duration), background-color var(--transition-duration);
 }
 
 .terminal-buttons span:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
   cursor: pointer;
 }
 
-.close {
-  background-color: #ff5f56;
-}
-.minimize {
-  background-color: #ffbd2e;
-}
-.maximize {
-  background-color: #27c93f;
-}
+.close { background-color: #ff5f56; }
+.minimize { background-color: #ffbd2e; }
+.maximize { background-color: #27c93f; }
 
 .terminal-title {
   color: var(--terminal-text);
   font-size: 14px;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
 }
 
 .terminal-content {
@@ -85,6 +96,7 @@ body {
 .prompt {
   color: var(--terminal-prompt);
   white-space: nowrap;
+  font-weight: bold;
 }
 
 .command {
@@ -97,8 +109,13 @@ body {
 
 .lista {
   opacity: 0;
-  transition: opacity 0.5s ease-in, transform 0.5s ease-out;
+  transition: opacity var(--transition-duration) ease-in, transform var(--transition-duration) ease-out;
   transform: translateY(20px);
+}
+
+.lista.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .lista ul {
@@ -112,6 +129,11 @@ body {
   color: var(--terminal-text);
   position: relative;
   padding-left: 20px;
+  transition: transform var(--transition-duration);
+}
+
+.lista ul li:hover {
+  transform: translateX(5px);
 }
 
 .lista ul li:before {
@@ -124,22 +146,27 @@ body {
 .social-link {
   color: var(--terminal-link);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all var(--transition-duration) ease;
   padding: 2px 5px;
   border-radius: 3px;
 }
 
 .social-link:hover {
   color: #ff79c6;
-  background-color: rgba(255,121,198,0.1);
+  background-color: rgba(255, 121, 198, 0.1);
   transform: translateX(5px);
 }
 
 .bio {
   opacity: 0;
-  transition: opacity 0.5s ease-in, transform 0.5s ease-out;
+  transition: opacity var(--transition-duration) ease-in, transform var(--transition-duration) ease-out;
   transform: translateY(20px);
   margin: 20px 0;
+}
+
+.bio.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section-title {
@@ -150,20 +177,24 @@ body {
 }
 
 .highlight-box {
-  background-color: rgba(98,114,164,0.1);
+  background-color: rgba(98, 114, 164, 0.1);
   border-left: 3px solid var(--terminal-highlight);
   padding: 15px;
   margin: 20px 0;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
 .cowsay {
   opacity: 0;
-  transition: opacity 0.5s ease-in;
+  transition: opacity var(--transition-duration) ease-in;
   margin-top: 20px;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 15px;
   border-radius: 5px;
+}
+
+.cowsay.visible {
+  opacity: 1;
 }
 
 .cowsay pre {

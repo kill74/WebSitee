@@ -9,7 +9,8 @@
     --terminal-height: 80vh;
     --footer-height: 60px;
     --transition-duration: 0.3s;
-    --glass-blur: 10px;
+    --glass-blur: 12px;
+    --shadow-depth: 15px;
 }
 
 * {
@@ -27,6 +28,12 @@ body {
     align-items: center;
     padding: 2rem;
     color: var(--terminal-text);
+    animation: fadeIn var(--transition-duration) ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .terminal-window {
@@ -35,17 +42,18 @@ body {
     min-height: var(--terminal-height);
     background-color: var(--terminal-bg);
     border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 var(--shadow-depth) 30px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(var(--glass-blur));
     transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+    transform: translateY(0);
 }
 
 .terminal-window:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 calc(var(--shadow-depth) + 5px) 50px rgba(0, 0, 0, 0.6);
 }
 
 .terminal-header {
@@ -82,9 +90,10 @@ body {
 .maximize { background-color: #a6e3a1; }
 
 .terminal-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     opacity: 0.9;
     font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .terminal-content {
@@ -105,7 +114,7 @@ body {
 .prompt {
     color: var(--terminal-prompt);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .command {
@@ -133,6 +142,11 @@ body {
     position: relative;
     line-height: 1.8;
     font-size: 1.1rem;
+    transition: transform var(--transition-duration);
+}
+
+.project-list li:hover {
+    transform: translateX(5px);
 }
 
 .project-list li::before {
