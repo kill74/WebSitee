@@ -13,13 +13,13 @@
     --shadow-depth: 20px;
     --terminal-border: rgba(255, 255, 255, 0.1);
   }
-  
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   body {
     background: radial-gradient(circle at center, #2a2a37 0%, #181825 100%);
     font-family: "Fira Code", monospace;
@@ -31,7 +31,7 @@
     color: var(--terminal-text);
     animation: fadeIn var(--transition-duration) ease-in-out;
   }
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -42,7 +42,7 @@
       transform: scale(1);
     }
   }
-  
+
   .terminal-window {
     width: 100%;
     max-width: 800px;
@@ -59,13 +59,13 @@
     transition: all var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateY(0);
   }
-  
+
   .terminal-window:hover {
     transform: translateY(-10px) scale(1.01);
     box-shadow: 0 calc(var(--shadow-depth) + 10px) 60px rgba(0, 0, 0, 0.6), 0 2px 2px rgba(255, 255, 255, 0.1), 0 4px 4px
       rgba(255, 255, 255, 0.1);
   }
-  
+
   .terminal-header {
     background-color: var(--terminal-header);
     padding: 1.2rem;
@@ -76,12 +76,12 @@
     border-bottom: 1px solid var(--terminal-border);
     backdrop-filter: blur(var(--glass-blur));
   }
-  
+
   .terminal-buttons {
     display: flex;
     gap: 0.8rem;
   }
-  
+
   .terminal-buttons span {
     width: 16px;
     height: 16px;
@@ -90,13 +90,13 @@
     position: relative;
     overflow: hidden;
   }
-  
+
   .terminal-buttons span:hover {
     transform: scale(1.2);
     cursor: pointer;
     filter: brightness(1.2);
   }
-  
+
   .terminal-buttons span::after {
     content: "";
     position: absolute;
@@ -109,11 +109,11 @@
     border-radius: 50%;
     transition: transform 0.3s ease;
   }
-  
+
   .terminal-buttons span:hover::after {
     transform: translate(-50%, -50%) scale(1.5);
   }
-  
+
   .close {
     background-color: #ff5555;
   }
@@ -123,7 +123,7 @@
   .maximize {
     background-color: #50fa7b;
   }
-  
+
   .terminal-title {
     font-size: 1.2rem;
     opacity: 0.9;
@@ -131,7 +131,7 @@
     letter-spacing: 0.5px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
-  
+
   .terminal-content {
     flex: 1;
     padding: 2.5rem;
@@ -142,21 +142,21 @@
     scrollbar-width: thin;
     scrollbar-color: var(--terminal-description) transparent;
   }
-  
+
   .terminal-content::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   .terminal-content::-webkit-scrollbar-track {
     background: transparent;
   }
-  
+
   .terminal-content::-webkit-scrollbar-thumb {
     background-color: var(--terminal-description);
     border-radius: 20px;
     border: 3px solid transparent;
   }
-  
+
   .command-line {
     display: flex;
     align-items: center;
@@ -164,7 +164,7 @@
     margin-bottom: 2.5rem;
     animation: slideInLeft 0.5s ease-out;
   }
-  
+
   @keyframes slideInLeft {
     from {
       transform: translateX(-20px);
@@ -175,24 +175,24 @@
       opacity: 1;
     }
   }
-  
+
   .prompt {
     color: var(--terminal-prompt);
     font-weight: 700;
     font-size: 1.2rem;
     text-shadow: 0 0 10px rgba(182, 227, 84, 0.3);
   }
-  
+
   .command {
     color: var(--terminal-text);
     font-size: 1.1rem;
   }
-  
+
   .project-list ul {
     list-style: none;
     padding-left: 2.5rem;
   }
-  
+
   .project-list li {
     margin: 1.5rem 0;
     position: relative;
@@ -202,7 +202,7 @@
     opacity: 0;
     animation: fadeInUp 0.5s ease-out forwards;
   }
-  
+
   @keyframes fadeInUp {
     from {
       transform: translateY(20px);
@@ -213,14 +213,14 @@
       opacity: 1;
     }
   }
-  
+
   .project-list li:hover {
     transform: translateX(10px);
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
     border-radius: 6px;
     padding: 0.5rem 1rem;
   }
-  
+
   .project-list li::before {
     content: "📁";
     position: absolute;
@@ -231,11 +231,11 @@
     text-shadow: 0 0 10px rgba(137, 180, 250, 0.3);
     transition: transform var(--transition-duration);
   }
-  
+
   .project-list li:hover::before {
     transform: scale(1.2);
   }
-  
+
   .project-link {
     color: var(--terminal-link);
     text-decoration: none;
@@ -244,12 +244,12 @@
     position: relative;
     padding: 0.2rem 0;
   }
-  
+
   .project-link:hover {
     color: var(--terminal-prompt);
     text-shadow: 0 0 10px rgba(182, 227, 84, 0.3);
   }
-  
+
   .project-link::after {
     content: "";
     position: absolute;
@@ -261,11 +261,11 @@
     transition: width var(--transition-duration);
     box-shadow: 0 0 10px rgba(182, 227, 84, 0.3);
   }
-  
+
   .project-link:hover::after {
     width: 100%;
   }
-  
+
   .project-list span {
     color: var(--terminal-description);
     margin-left: 1.2rem;
@@ -273,11 +273,11 @@
     opacity: 0.8;
     transition: opacity var(--transition-duration);
   }
-  
+
   .project-list li:hover span {
     opacity: 1;
   }
-  
+
   footer {
     padding: 1.5rem;
     background-color: var(--terminal-header);
@@ -285,30 +285,30 @@
     border-top: 1px solid var(--terminal-border);
     backdrop-filter: blur(var(--glass-blur));
   }
-  
+
   footer p {
     color: var(--terminal-description);
     font-size: 1rem;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
-  
+
   @media (max-width: 768px) {
     body {
       padding: 1rem;
     }
-  
+
     .terminal-window {
       border-radius: 16px;
     }
-  
+
     .terminal-content {
       padding: 1.5rem;
     }
-  
+
     .project-list li {
       font-size: 1rem;
     }
-  
+
     .project-list span {
       font-size: 0.9rem;
       display: block;
@@ -316,7 +316,7 @@
       margin-top: 0.5rem;
     }
   }
-  
+
   /* Animation delays for project list items */
   .project-list li:nth-child(1) {
     animation-delay: 0.1s;
@@ -342,5 +342,4 @@
   .project-list li:nth-child(8) {
     animation-delay: 0.8s;
   }
-  
-  
+
