@@ -3,42 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio de Guilherme Sales - Estudante de Multimédia" />
     <title>Guilherme Portfolio</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <div class="terminal-window">
-      <div class="terminal-header">
+    <main class="terminal-window">
+      <header class="terminal-header">
         <div class="terminal-buttons">
-          <span class="close"></span>
-          <span class="minimize"></span>
-          <span class="maximize"></span>
+          <span class="close" aria-hidden="true"></span>
+          <span class="minimize" aria-hidden="true"></span>
+          <span class="maximize" aria-hidden="true"></span>
         </div>
-        <div class="terminal-title">guilherme@portfolio: ~</div>
-      </div>
-      <div class="terminal-content">
+        <h1 class="terminal-title">guilherme@portfolio: ~</h1>
+      </header>
+      
+      <section class="terminal-content">
         <div class="command-line">
           <span class="prompt">guilherme@portfolio:~$</span>
           <span id="txt" class="command"></span>
         </div>
-        <div class="lista" id="list">
+        
+        <section class="lista" id="list">
           <div class="command-output">
-            <p>Links disponíveis:</p>
-            <ul>
+            <h2>Links disponíveis:</h2>
+            <ul class="social-links">
               <li>
-                └─ <a href="https://github.com/kill74" target="_blank" class="social-link github">github</a>
+                └─ <a href="https://github.com/kill74" target="_blank" rel="noopener noreferrer" class="social-link github">GitHub <span class="visually-hidden">(abre em nova janela)</span></a>
               </li>
               <li>
-                └─ <a href="https://x.com/Gwyuii32" target="_blank" class="social-link twitter">twitter</a>
+                └─ <a href="https://x.com/Gwyuii32" target="_blank" rel="noopener noreferrer" class="social-link twitter">Twitter <span class="visually-hidden">(abre em nova janela)</span></a>
               </li>
             </ul>
           </div>
-        </div>
-        <div class="bio" id="bio">
+        </section>
+        
+        <section class="bio" id="bio">
           <div class="command-output">
             <h2 class="section-title">Sobre mim</h2>
             <p>Olá! Sou o Guilherme Sales, um estudante de Multimédia apaixonado por programação e tecnologia open source.</p>
@@ -46,20 +51,21 @@
             <h2 class="section-title">Objetivos</h2>
             <p>O meu foco principal é desenvolver as minhas competências em software e contribuir ativamente para projetos de código aberto, especialmente aqueles relacionados com Linux.</p>
 
-            <div class="highlight-box">
+            <blockquote class="highlight-box">
               <p>"Acredito firmemente no poder do desenvolvimento comunitário de software e na importância de partilhar conhecimentos."</p>
-            </div>
+            </blockquote>
 
             <p>Pode ver os meus projetos <a href="projetos.html" class="projetos">aqui</a>.</p>
           </div>
-        </div>
-        <br>
+        </section>
+        
         <div class="command-line">
           <span class="prompt">guilherme@portfolio:~$</span>
           <span id="txt1" class="command"></span>
         </div>
-        <div id="cowsay" class="cowsay">
-          <pre>
+        
+        <section id="cowsay" class="cowsay">
+          <pre aria-label="ASCII art of a cow saying 'Hello World!'">
 ----------------------------------------
           <p>Hello World!</p>
 ----------------------------------------
@@ -69,9 +75,10 @@
               ||----w |
               ||     ||
           </pre>
-        </div>
-      </div>
-    </div>
+        </section>
+      </section>
+    </main>
+    
     <script src="script.js"></script>
   </body>
 </html>

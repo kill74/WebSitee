@@ -3,72 +3,76 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Projetos de Guilherme Sales - Portfolio de programação e tecnologia" />
     <title>Guilherme - Projetos</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="projetos.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-    <div class="terminal-window">
-        <div class="terminal-header">
+    <main class="terminal-window">
+        <header class="terminal-header">
             <div class="terminal-buttons">
-                <span class="close"></span>
-                <span class="minimize"></span>
-                <span class="maximize"></span>
+                <span class="close" aria-hidden="true"></span>
+                <span class="minimize" aria-hidden="true"></span>
+                <span class="maximize" aria-hidden="true"></span>
             </div>
-            <div class="terminal-title">guilherme@portfolio/projetos: ~</div>
-        </div>
-        <div class="terminal-content">
+            <h1 class="terminal-title">guilherme@portfolio/projetos: ~</h1>
+        </header>
+        
+        <section class="terminal-content">
             <div class="command-line">
                 <span class="prompt">guilherme@portfolio/projetos:~$</span>
                 <span id="txt3" class="command"></span>
             </div>
-            <div id="directory-output" class="project-list">
+            
+            <nav id="directory-output" class="project-list">
+                <h2 class="visually-hidden">Meus Projetos</h2>
                 <ul>
                     <li>
-                        <a href="https://github.com/kill74/WebSitee" class="project-link">portfolio-website/</a>
+                        <a href="https://github.com/kill74/WebSitee" class="project-link" target="_blank" rel="noopener noreferrer">portfolio-website/ <span class="visually-hidden">(abre em nova janela)</span></a>
                         <span>- O meu site pessoal desenvolvido com HTML/CSS/JS.</span>
                     </li>
                     <li>
-                        <a href="https://github.com/kill74/Infotecc" class="project-link">Infotec/</a>
+                        <a href="https://github.com/kill74/Infotecc" class="project-link" target="_blank" rel="noopener noreferrer">Infotec/ <span class="visually-hidden">(abre em nova janela)</span></a>
                         <span>- WebSite que desenvolvi para o evento que decorre na ESTCB.</span>
                     </li>
                     <li>
-                        <a href="https://github.com/kill74/TrabalhoAndroidStudio" class="project-link">QuemQuerSerMilionario/</a>
+                        <a href="https://github.com/kill74/TrabalhoAndroidStudio" class="project-link" target="_blank" rel="noopener noreferrer">QuemQuerSerMilionario/ <span class="visually-hidden">(abre em nova janela)</span></a>
                         <span>- Jogo desenvolvido em Android Studio que tem como tema o "Quem quer ser Milionário".</span>
                     </li>
                     <li>
-                        <a href="https://github.com/kill74/WebSite" class="project-link">WebSite/</a>
+                        <a href="https://github.com/kill74/WebSite" class="project-link" target="_blank" rel="noopener noreferrer">WebSite/ <span class="visually-hidden">(abre em nova janela)</span></a>
                         <span>- WebSite que desenvolvi para experimentar a framework Astro.</span>
                     </li>
                     <li>
-                        <a href="https://github.com/kill74/VisualInterpreter" class="project-link">VisualInterpreter/</a>
+                        <a href="https://github.com/kill74/VisualInterpreter" class="project-link" target="_blank" rel="noopener noreferrer">VisualInterpreter/ <span class="visually-hidden">(abre em nova janela)</span></a>
                         <span>- Projeto desenvolvido em Python que tem como objetivo detetar objetos, inserir efeitos na câmara, e detetar faces.</span>
                     </li>
                     <li>
-                        <a href="https://github.com/kill74/Terra_3D" class="project-link">Terra_3D/</a>
+                        <a href="https://github.com/kill74/Terra_3D" class="project-link" target="_blank" rel="noopener noreferrer">Terra_3D/ <span class="visually-hidden">(abre em nova janela)</span></a>
                         <span>- Projeto desenvolvido em JavaScript que tem como objetivo criar um planeta Terra em 3D.</span>
                     </li>
                     <li>
-                        <a href="https://github.com/kill74/StudyAplication" class="project-link">StudyAplication/</a>
+                        <a href="https://github.com/kill74/StudyAplication" class="project-link" target="_blank" rel="noopener noreferrer">StudyAplication/ <span class="visually-hidden">(abre em nova janela)</span></a>
                         <span>- Aplicação para seguir o seu estudo.</span>
                     </li>
-                    <br>
-                    <br>
-                    <li>
-                        <a href="index.html">Pagina Principal</a>
+                    
+                    <li class="navigation-item">
+                        <a href="index.html" class="home-link">← Página Principal</a>
                     </li>
                 </ul>
-                <br>
-                <br>
-            </div>
-        </div>
+            </nav>
+        </section>
+        
         <footer>
             <p>© 2025 Guilherme Sales. Todos os direitos reservados.</p>
         </footer>
-    </div>
+    </main>
+    
     <script src="projetos.js"></script>
 </body>
 </html>
