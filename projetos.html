@@ -13,8 +13,8 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-    <main class="terminal-window">
-        <header class="terminal-header">
+    <main class="terminal-window" role="main">
+        <header class="terminal-header" role="banner">
             <div class="terminal-buttons">
                 <span class="close" aria-hidden="true"></span>
                 <span class="minimize" aria-hidden="true"></span>
@@ -24,13 +24,13 @@
         </header>
         
         <section class="terminal-content">
-            <div class="command-line">
+            <div class="command-line" role="presentation">
                 <span class="prompt">guilherme@portfolio/projetos:~$</span>
-                <span id="txt3" class="command"></span>
+                <span id="txt3" class="command" aria-hidden="true"></span>
             </div>
             
-            <nav id="directory-output" class="project-list">
-                <h2 class="visually-hidden">Meus Projetos</h2>
+            <nav id="directory-output" class="project-list" aria-labelledby="projects-heading" aria-hidden="true">
+                <h2 id="projects-heading" class="visually-hidden">Meus Projetos</h2>
                 <ul>
                     <li>
                         <a href="https://github.com/kill74/WebSitee" class="project-link" target="_blank" rel="noopener noreferrer">portfolio-website/ <span class="visually-hidden">(abre em nova janela)</span></a>
